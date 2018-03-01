@@ -23,7 +23,9 @@ if [ ! -f "/var/www/html/composer.json" ]; then
   if download; then
     break
   else
+    echo "Removing temporary data"
     rm -rf /tmp/drupal
+    mkdir /tmp/drupal
     echo "Cloning repository ${DRUPAL_REPOSITORY_NAME}"
     git clone ${DRUPAL_REPOSITORY_NAME} --branch ${DRUPAL_REPOSITORY_BRANCH} /tmp/drupal
     echo "Clone completed"
