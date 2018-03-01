@@ -23,7 +23,7 @@ Example update default `HOST_NAME` from `drupal.develop` to `mysite.develop`.
 ### Starting the containers
 To start the containers you need to execute the following command docker-compose up -d, grab some coffee or a beer and be patient while the images are downloaded to your local computer.
 ```
-docker-compose start -d
+docker-compose up -d
 ```
 NOTE: We suggest provide the detached mode flag to run in background.
 
@@ -32,11 +32,11 @@ NOTE: We suggest provide the detached mode flag to run in background.
 docker-compose exec --user=82 php ../shell/get-drupal.sh
 ```
 
-### Stoping the containers
+### Shuting down the containers
 ```
-docker-compose stop
+docker-compose down
 
-docker-compose stop -v
+docker-compose down -v
 ```
 NOTE: You can pass the -v flag to destroy the shared volumes as well. Be careful this will destroy any data on the shared volumes between the container and the local machine.
 
