@@ -12,11 +12,11 @@ git clone https://github.com/weknowinc/try-drupal
 
 ### Copy and rename then `.env.dist` file
 ```
-cp .env.dist app/.env
+cp .env.dist .env
 ```
 
 ### Edit configuration
-Edit the copied `app/.env` file and make changes according to your project needs.
+Edit the copied `.env` file and make changes according to your project needs.
 
 Example update default `HOST_NAME` from `weknowinc.develop` to `mysite.develop`.
 
