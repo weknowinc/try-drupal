@@ -29,7 +29,7 @@ NOTE: We suggest provide the detached mode flag to run in background.
 
 ### Download and install Drupal
 ```
-docker-compose exec --user=82 php ../shell/get-drupal.sh
+docker-compose exec --user=82 php ../.shell/init.sh
 ```
 
 ### Shuting down the containers
