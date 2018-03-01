@@ -3,7 +3,7 @@ version: "3"
 services:
   mariadb:
     image: wodby/mariadb:10.2-3.0.2
-    env_file: ./app/.env
+    env_file: .env
     environment:
       MYSQL_RANDOM_ROOT_PASSWORD: 'true'
       MYSQL_DATABASE: ${DATABASE_NAME}
@@ -18,7 +18,7 @@ services:
 
   php:
     image: wodby/drupal-php:7.0-2.4.3
-    env_file: ./app/.env
+    env_file: .env
     environment:
       PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
       DB_HOST: ${DATABASE_HOST}
@@ -27,7 +27,7 @@ services:
       DB_NAME: ${DATABASE_NAME}
       DB_DRIVER: mysql
     volumes:
-      - ./scripts:/var/www/scripts:cached
+      - ./shell:/var/www/shell:cached
       - ./app:/var/www/html:cached
     # command: ../scripts/get-drupal.sh
     depends_on:
@@ -41,7 +41,7 @@ services:
 
   nginx:
     image: wodby/drupal-nginx:8-1.13-2.4.2
-    env_file: ./app/.env
+    env_file: .env
     depends_on:
       - php
       # - php:
@@ -60,7 +60,7 @@ services:
 
   mailhog:
     image: mailhog/mailhog
-    env_file: ./app/.env
+    env_file: .env
     labels:
       - 'traefik.backend=mailhog'
       - 'traefik.port=8025'
@@ -68,7 +68,7 @@ services:
 
   traefik:
     image: traefik
-    env_file: ./app/.env
+    env_file: .env
     command: -c /dev/null --web --docker --logLevel=INFO
     ports:
       - '${HOST_PORT}:80'
