@@ -3,7 +3,7 @@
 
 ## Want to quickly see how Drupal works?
 
-This repo was created to make easy
+This repo was created to make easy to spinning up Drupal sites.
 
 ### Clone repository
 ```
