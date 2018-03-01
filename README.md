@@ -37,6 +37,8 @@ docker-compose exec --user=82 php shell/init.sh
 ```
 NOTE: Use your own domain if you make changes in the copied `.env` file.
 
+Open your browser and point to `http://drupal.develop/` or the hostname you entered on the `.env` file.
+
 ### Shutting down the containers
 ```
 docker-compose down
