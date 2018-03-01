@@ -9,7 +9,7 @@ This repo was created to make easy to spinning up Drupal sites.
 git clone https://github.com/weknowinc/try-drupal
 ```
 
-### Copy and rename then `.env.dist` file
+### Copy and rename the `.env.dist` file
 ```
 cp .env.dist .env
 ```
@@ -31,7 +31,13 @@ NOTE: We suggest provide the detached mode flag to run in background.
 docker-compose exec --user=82 php shell/init.sh
 ```
 
-### Shuting down the containers
+### Add hostname entry in your `/etc/hosts` file
+```
+127.0.0.1    drupal.develop
+```
+NOTE: Use your own domain if you make changes in the copied `.env` file.
+
+### Shutting down the containers
 ```
 docker-compose down
 
