@@ -28,7 +28,7 @@ services:
       DB_DRIVER: mysql
     volumes:
       - ./shell:/var/www/shell:cached
-      - ./app:/var/www/html:cached
+      - ./:/var/www/html:cached
     # command: ../scripts/get-drupal.sh
     depends_on:
       - mariadb
