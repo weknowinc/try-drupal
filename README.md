@@ -18,7 +18,7 @@ cp .env.dist .env
 ### Edit configuration
 Edit the copied `.env` file and make changes according to your project needs.
 
-Example update default `HOST_NAME` from `weknowinc.develop` to `mysite.develop`.
+Example update default `HOST_NAME` from `drupal.develop` to `mysite.develop`.
 
 ### Starting the containers
 To start the containers you need to execute the following command docker-compose up -d, grab some coffee or a beer and be patient while the images are downloaded to your local computer.
