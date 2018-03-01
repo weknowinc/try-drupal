@@ -28,9 +28,9 @@ if [ ! -f "/var/www/html/composer.json" ]; then
     mkdir /tmp/drupal
     echo "Cloning repository ${DRUPAL_REPOSITORY_NAME}"
     git clone ${DRUPAL_REPOSITORY_NAME} --branch ${DRUPAL_REPOSITORY_BRANCH} /tmp/drupal
-    echo "Clone completed"
-    cp -R /tmp/drupal/* /var/www/html/
     rm -rf .git
+    echo "Clone completed"
+    rsync -rt /tmp/drupal/ /var/www/html/
     echo "Installing dependencies"
     composer install --no-interaction
     echo "Install completed"
