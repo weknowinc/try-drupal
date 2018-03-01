@@ -3,4 +3,5 @@
 sudo rm -rf app
 mkdir app
 cp .env.dist app/.env
+touch app/.gitkeep
 #docker-compose up -d
