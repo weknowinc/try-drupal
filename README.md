@@ -10,13 +10,13 @@ This repo was created to make easy to spinning up Drupal sites.
 git clone https://github.com/weknowinc/try-drupal
 ```
 
-### Copy and rename then .env.dist file
+### Copy and rename then `.env.dist` file
 ```
-cp .env.dist .env
+cp .env.dist app/.env
 ```
 
 ### Edit configuration
-Edit the app/.env file and make changes according to your project needs.
+Edit the copied `app/.env` file and make changes according to your project needs.
 
 Example update default `HOST_NAME` from `weknowinc.develop` to `mysite.develop`.
 
