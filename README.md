@@ -1,5 +1,4 @@
 # Try Drupal
----
 
 ## Want to quickly see how Drupal works?
 
@@ -50,3 +49,5 @@ lsof -i :80
 # db (MySQL, MariaDB)
 lsof -i :3306
 ```
+
+We based the docker configuration of this repository on the [Drupal4Docker](https://github.com/wodby/docker4drupal) project.
