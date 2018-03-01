@@ -23,13 +23,23 @@ Example update default `HOST_NAME` from `weknowinc.develop` to `mysite.develop`.
 ### Starting the containers
 To start the containers you need to execute the following command docker-compose up -d, grab some coffee or a beer and be patient while the images are downloaded to your local computer.
 ```
-# Change directory where the Drupal was downloaded
+# Change to directory where the Drupal was downloaded
 cd app/
 
 # Start the containers
 docker-compose start -d
 ```
 NOTE: We suggest provide the detached mode flag to run in background.
+
+### Download and install Drupal
+```
+# Change to directory where the Drupal was downloaded
+cd app/
+
+# Execute script
+docker-compose exec --user=82 php ../scripts/get-drupal.sh
+```
+
 
 ### Stoping the containers
 ```
