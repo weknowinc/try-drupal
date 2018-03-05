@@ -1,0 +1,7 @@
+develop:
+  type: container
+  root: /var/www/html
+  options:
+    uri: default
+#  arguments:
+  extra-options: 'docker-compose exec --user=82 php'
