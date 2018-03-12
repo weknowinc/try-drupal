@@ -34,17 +34,12 @@ services:
     depends_on:
       mariadb:
         condition: service_healthy
-    healthcheck:
-      test: bash -c "[ -f ${SERVER_ROOT} ]"
-      timeout: 5s
-      retries: 100
 
   nginx:
     image: wodby/drupal-nginx:8-1.13-2.4.2
     env_file: ./.env
     depends_on:
-      php:
-        condition: service_healthy
+      - php
     environment:
       NGINX_STATIC_CONTENT_OPEN_FILE_CACHE: "off"
       NGINX_ERROR_LOG_LEVEL: debug
