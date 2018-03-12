@@ -11,6 +11,8 @@ services:
       MYSQL_PASSWORD: ${DATABASE_PASSWORD}
     volumes:
       - mysqldata:/var/lib/mysql
+      # Place init .sql file(s) here
+      - ./mariadb-init:/docker-entrypoint-initdb.d
     healthcheck:
       test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
       timeout: 20s
@@ -28,11 +30,12 @@ services:
       DB_DRIVER: mysql
     volumes:
       - ./shell:/var/www/shell:cached
-      - ./:/var/www/html:cached
+      - ./:${DRUPAL_ROOT}:cached
     depends_on:
-      - mariadb
+      mariadb:
+        condition: service_healthy
     healthcheck:
-      test: bash -c "[ -f /var/www/html/${DRUPAL_WEB_ROOT} ]"
+      test: bash -c "[ -f ${SERVER_ROOT} ]"
       timeout: 5s
       retries: 100
 
@@ -40,14 +43,15 @@ services:
     image: wodby/drupal-nginx:8-1.13-2.4.2
     env_file: ./.env
     depends_on:
-      - php
+      php:
+        condition: service_healthy
     environment:
       NGINX_STATIC_CONTENT_OPEN_FILE_CACHE: "off"
       NGINX_ERROR_LOG_LEVEL: debug
       NGINX_BACKEND_HOST: php
-      NGINX_SERVER_ROOT: /var/www/html/${DRUPAL_WEB_ROOT}
+      NGINX_SERVER_ROOT: ${SERVER_ROOT}
     volumes:
-      - ./:/var/www/html:cached
+      - ./:${DRUPAL_ROOT}:cached
     labels:
       - 'traefik.backend=nginx'
       - 'traefik.port=80'
