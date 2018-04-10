@@ -17,12 +17,16 @@ commands:
     usage: Restart services.
 
   up:
-    cmd: docker-compose up "$@"
+    cmd: docker-compose up -d "$@"
     usage: Create and start containers.
 
   down:
     cmd: docker-compose down "$@"
     usage: Stop and remove containers, networks, images, and volumes.
+
+  composer:
+    cmd: docker-compose exec --user=82 php composer "$@"
+    usage: Run Composer commands in the php service container.
 
   drupal:
     cmd: docker-compose exec --user=82 php vendor/bin/drupal "$@"
