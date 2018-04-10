@@ -19,7 +19,30 @@ Edit the copied `.env` file and make changes according to your project needs.
 
 Example update default `HOST_NAME` from `drupal.develop` to `mysite.develop`.
 
-### Starting the containers
+## Setup
+
+### Using Ahoy
+Install ahoy on OS-X
+```
+brew install ahoy-cli/tap/ahoy
+```
+For instructions using other OS (Ahoy)[http://www.ahoycli.com/en/latest/#installation]
+### Starting containers
+```
+ahoy up
+```
+### Download and install Drupal
+```
+ahoy download
+```
+### Executing DrupalConsole and Drush
+```
+ahoy drupal
+ahoy drush
+```
+
+---
+### Starting containers
 To start the containers you need to execute the following command docker-compose up -d, grab some coffee or a beer and be patient while the images are downloaded to your local computer.
 ```
 docker-compose up -d
