@@ -22,26 +22,44 @@ Example update default `HOST_NAME` from `drupal.develop` to `mysite.develop`.
 ## Setup
 
 ### Using Ahoy
-Install ahoy on OS-X
+---
+If you don have ahoy installed you can install on OS-X
 ```
 brew install ahoy-cli/tap/ahoy
 ```
 For instructions using other OS (Ahoy)[http://www.ahoycli.com/en/latest/#installation]
+
+> NOTE : This process must be done once per local computer.
+
 ### Starting containers
 ```
 ahoy up
 ```
+
 ### Download and install Drupal
 ```
 ahoy download
 ```
+
+### Install DrupalConsole
+```
+ahoy composer require drupal/console:~1.0
+```
+
+### Install Drupal 8
+```
+ahoy drupal site:install standard --force --no-interaction
+```
+
 ### Executing DrupalConsole and Drush
 ```
 ahoy drupal
 ahoy drush
 ```
 
+## Executing docker-compose directly
 ---
+
 ### Starting containers
 To start the containers you need to execute the following command docker-compose up -d, grab some coffee or a beer and be patient while the images are downloaded to your local computer.
 ```
